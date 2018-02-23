@@ -1,0 +1,47 @@
+﻿@model BlogLand.ViewModels.LoginModel
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="login-div">
+        @Html.ValidationSummary(true)
+        @using (Html.BeginForm())
+        {
+            <fieldset>
+                <legend>Login</legend>
+                <p>
+                    @Html.LabelFor(model => model.UserName)
+                </p>
+                <p>
+                    @Html.TextBoxFor(model => model.UserName)
+                </p>
+                <p>
+                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                </p>
+                <p>
+                    @Html.LabelFor(model => model.Password)
+                </p>
+                <p>
+                    @Html.PasswordFor(model => model.Password)
+                </p>
+                <p>
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </p>
+                @Html.Hidden("ReturnUrl")
+                @Html.AntiForgeryToken()
+                <p id="loginsubmit"> 
+                    <input type="submit" value="Login" />
+                </p>
+            </fieldset>
+        }
+    </div>
+</body>
+

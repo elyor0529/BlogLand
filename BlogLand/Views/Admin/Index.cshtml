@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="tabContent">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#firstTab" data-toggle="tab">Posts</a></li>
+        <li><a href="#secondTab" data-toggle="tab">Categories</a></li>
+        <li><a href="#thirdTab" data-toggle="tab">Tags</a></li>
+    </ul>
+    <div class="tab-content">
+        <div id="firstTab" class="tab-pane fade in active commonIndex">@Html.Action("Index", "Post")</div>
+        <div id="secondTab" class="tab-pane fade in commonIndex">@Html.Action("Index", "Category")</div>
+        <div id="thirdTab" class="tab-pane fade in commonIndex">@Html.Action("Index", "Tag")</div>
+    </div>
+</div>

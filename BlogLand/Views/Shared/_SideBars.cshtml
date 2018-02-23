@@ -1,0 +1,31 @@
+﻿@model BlogLand.ViewModels.WidgetViewModel
+
+<div id="sidebar">
+    <div class="sdsect">
+        <h3>Categories</h3>
+        <ul>
+            @foreach(var cat in Model.Categories)
+            {
+                <li>@Html.CategoryLink(cat)</li>
+            }
+        </ul>
+    </div>
+    <div class="sdsect">
+        <h3>Tags</h3>
+        <ul>
+            @foreach(var tag in Model.Tags)
+            {
+                <li>@Html.TagLink(tag)</li>
+            }
+        </ul>
+    </div>
+    <div class="sdsect">
+        <h3>Latest Posts</h3>
+        <ul>
+            @foreach (var post in Model.Posts)
+            {
+                <li>@Html.PostLink(post)</li>
+            }
+        </ul>
+    </div>
+</div>

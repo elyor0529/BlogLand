@@ -1,0 +1,36 @@
+﻿@model BlogLand.Models.Post
+
+<div class="post">
+<div id="top-content">
+    <div class="post-head">
+        @Html.PostLink(Model)
+    </div>
+    <div class="row">
+    <div class="categ-head">
+       <span>Category: </span>  @Html.CategoryLink(Model.Category)
+    </div>
+    <div class="tag-head">
+      <p> <span>Tags: </span> @Helpers.Tags(Html, Model.Tags)</p>
+    </div>
+    <div class="post-time">
+       @Model.PostedOn.ToLocalTime()
+    </div>
+    </div>
+</div>
+    <div class="clearfix"></div>
+<div class="post-shd">
+    @Model.ShortDescription
+</div>
+<div class="post-foot">
+    @Html.ActionLink("continue...", "post", "blog",
+        new
+        {
+            year = Model.PostedOn.Year,
+            month = Model.PostedOn.Month,
+            day = Model.PostedOn.Day,
+            title = Model.UrlSlug
+        },
+        new { title = "continue..." }
+    )
+</div>
+</div>

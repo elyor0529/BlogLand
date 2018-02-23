@@ -1,0 +1,36 @@
+﻿@model BlogLand.ViewModels.ListViewModel
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div id="mainlist">
+    @Html.Partial("_Search")
+    <h1>@ViewBag.Title</h1>
+    <div class="pager">
+    @Html.Partial("_Pager", Model)
+    </div>
+    <div class="clearfix">
+
+    </div>
+    @if(Model.Posts.Count() > 0)
+    {
+        foreach(var post in Model.Posts)
+        {
+            @Html.Partial("_PostTemplate", post)
+        }
+    }
+    else
+    {
+        <p>No posts found!</p>
+    }
+    <div class="pager">
+    @Html.Partial("_Pager", Model)
+    </div>
+</div>
+@Html.Action("Sidebars", "Home")
+<div class="clearfix">
+
+</div>
